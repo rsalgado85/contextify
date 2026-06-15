@@ -16,6 +16,7 @@ import { fetchMarkdown, parseMarkdownToPageData } from "@/services/jina";
 import { cleanMarkdown, toPlainText, toJson, toAIContext } from "@/services/markdown";
 import { useHistory } from "@/store/useHistory";
 import { useFavorites } from "@/store/useFavorites";
+import { useLanguage } from "@/components/language-provider";
 import type { PageData } from "@/types";
 
 type TabType = "markdown" | "clean" | "ai-context" | "json" | "text";
@@ -27,6 +28,7 @@ export function ConvertPageClient() {
   const router = useRouter();
   const { addItem } = useHistory();
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { t } = useLanguage();
 
   const [url, setUrl] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +62,7 @@ export function ConvertPageClient() {
         }
         const parsed = urlSchema.safeParse(finalUrl);
         if (!parsed.success) {
-          throw new Error("Please enter a valid URL");
+          throw new Error(t("urlInput.invalidUrl"));
         }
 
         // Fetch
@@ -78,13 +80,13 @@ export function ConvertPageClient() {
         setUrl(parsed.data);
         router.replace(`/convert?url=${encodeURIComponent(parsed.data)}`, { scroll: false });
       } catch (err) {
-        const message = err instanceof Error ? err.message : "An unexpected error occurred";
+        const message = err instanceof Error ? err.message : t("errors.unexpectedError");
         setError(message);
       } finally {
         setIsLoading(false);
       }
     },
-    [addItem, router]
+    [addItem, router, t]
   );
 
   const handleUrlSubmit = useCallback(
@@ -126,7 +128,7 @@ export function ConvertPageClient() {
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to Home
+          {t("convert.backToHome")}
         </Link>
       </motion.div>
 
@@ -142,11 +144,11 @@ export function ConvertPageClient() {
             <Sparkles className="h-5 w-5 text-primary" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            Convert <span className="gradient-text">Webpage</span>
+            {t("convert.title")}
           </h1>
         </div>
         <p className="text-muted-foreground ml-13">
-          Enter any URL to convert it into AI-ready Markdown.
+          {t("convert.description")}
         </p>
       </motion.div>
 
@@ -176,7 +178,7 @@ export function ConvertPageClient() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <LoadingState message="Fetching and converting webpage content..." />
+          <LoadingState message={t("convert.loading")} />
         </motion.div>
       )}
 

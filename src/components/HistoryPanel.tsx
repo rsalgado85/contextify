@@ -4,6 +4,7 @@ import { useHistory } from "@/store/useHistory";
 import { Clock, Trash2, ExternalLink, History } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/components/language-provider";
 
 interface HistoryPanelProps {
   onSelect: (url: string) => void;
@@ -12,6 +13,7 @@ interface HistoryPanelProps {
 
 export function HistoryPanel({ onSelect, className }: HistoryPanelProps) {
   const { items, removeItem, clearAll } = useHistory();
+  const { t } = useLanguage();
 
   if (items.length === 0) return null;
 
@@ -20,14 +22,14 @@ export function HistoryPanel({ onSelect, className }: HistoryPanelProps) {
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <History className="h-4 w-4 text-muted-foreground" />
-          <h3 className="text-sm font-semibold">Recent URLs</h3>
+          <h3 className="text-sm font-semibold">{t("history.recentUrls")}</h3>
           <span className="text-xs text-muted-foreground">({items.length})</span>
         </div>
         <button
           onClick={clearAll}
           className="text-xs text-muted-foreground hover:text-destructive transition-colors"
         >
-          Clear all
+          {t("history.clearAll")}
         </button>
       </div>
       <div className="space-y-1 max-h-48 overflow-y-auto">

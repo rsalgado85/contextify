@@ -6,6 +6,7 @@ import { TokenCounter } from "./TokenCounter";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { FileText, Sparkles, Brain, Braces, AlignLeft, Star } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 type TabType = "markdown" | "clean" | "ai-context" | "json" | "text";
 
@@ -43,12 +44,14 @@ export function ResultTabs({
   onToggleFavorite,
   className,
 }: ResultTabsProps) {
+  const { t } = useLanguage();
+
   const tabs: TabConfig[] = [
-    { id: "markdown", label: "Markdown", icon: <FileText className="h-4 w-4" />, content: markdown, filename: "content.md", mimeType: "text/markdown" },
-    { id: "clean", label: "Clean", icon: <Sparkles className="h-4 w-4" />, content: cleanMarkdown, filename: "content-clean.md", mimeType: "text/markdown" },
-    { id: "ai-context", label: "AI Context", icon: <Brain className="h-4 w-4" />, content: aiContext, filename: "ai-context.md", mimeType: "text/markdown" },
-    { id: "json", label: "JSON", icon: <Braces className="h-4 w-4" />, content: json, filename: "content.json", mimeType: "application/json" },
-    { id: "text", label: "Plain Text", icon: <AlignLeft className="h-4 w-4" />, content: plainText, filename: "content.txt", mimeType: "text/plain" },
+    { id: "markdown", label: t("tabs.markdown"), icon: <FileText className="h-4 w-4" />, content: markdown, filename: "content.md", mimeType: "text/markdown" },
+    { id: "clean", label: t("tabs.clean"), icon: <Sparkles className="h-4 w-4" />, content: cleanMarkdown, filename: "content-clean.md", mimeType: "text/markdown" },
+    { id: "ai-context", label: t("tabs.aiContext"), icon: <Brain className="h-4 w-4" />, content: aiContext, filename: "ai-context.md", mimeType: "text/markdown" },
+    { id: "json", label: t("tabs.json"), icon: <Braces className="h-4 w-4" />, content: json, filename: "content.json", mimeType: "application/json" },
+    { id: "text", label: t("tabs.plainText"), icon: <AlignLeft className="h-4 w-4" />, content: plainText, filename: "content.txt", mimeType: "text/plain" },
   ];
 
   const active = tabs.find((t) => t.id === activeTab) || tabs[0];
@@ -94,7 +97,7 @@ export function ResultTabs({
                   ? "text-amber-400 hover:bg-amber-400/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
               )}
-              title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              title={isFavorite ? t("tabs.removeFromFavorites") : t("tabs.addToFavorites")}
             >
               <Star className={cn("h-4 w-4", isFavorite && "fill-current")} />
             </button>

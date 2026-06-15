@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/hooks/useTheme";
+import { LanguageProvider } from "@/components/language-provider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "sonner";
@@ -117,27 +118,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} dark`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider>
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster
-            position="bottom-right"
-            theme="dark"
-            toastOptions={{
-              className: "glass-card",
-              style: {
-                background: "hsl(var(--card))",
-                border: "1px solid hsl(var(--border))",
-              },
-            }}
-          />
-          <Analytics />
-          <SpeedInsights />
+          <LanguageProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            <Toaster
+              position="bottom-right"
+              theme="dark"
+              toastOptions={{
+                className: "glass-card",
+                style: {
+                  background: "hsl(var(--card))",
+                  border: "1px solid hsl(var(--border))",
+                },
+              }}
+            />
+            <Analytics />
+            <SpeedInsights />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

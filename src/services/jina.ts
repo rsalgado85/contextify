@@ -1,19 +1,24 @@
 import { PageData } from "@/types";
 
-const JINA_BASE = "https://r.jina.ai";
-
 export async function fetchMarkdown(url: string): Promise<string> {
-  const jinaUrl = `${JINA_BASE}/http://${url.replace(/^https?:\/\//, "")}`;
-
-  const response = await fetch(jinaUrl, {
+  const response = await fetch("/api/convert", {
+    method: "POST",
     headers: {
-      Accept: "text/markdown",
-      "X-Return-Format": "markdown",
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({ url }),
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch content: ${response.status} ${response.statusText}`);
+    const errorBody = await response.text();
+    let errorMessage: string;
+    try {
+      const parsed = JSON.parse(errorBody);
+      errorMessage = parsed.error || `Request failed with status ${response.status}`;
+    } catch {
+      errorMessage = errorBody || `Request failed with status ${response.status}`;
+    }
+    throw new Error(errorMessage);
   }
 
   const text = await response.text();

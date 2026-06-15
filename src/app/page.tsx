@@ -25,88 +25,90 @@ import { FeatureCard } from "@/components/FeatureCard";
 import { useHistory } from "@/store/useHistory";
 import { HistoryPanel } from "@/components/HistoryPanel";
 import { FavoritesPanel } from "@/components/FavoritesPanel";
-
-const features = [
-  {
-    icon: <Zap className="h-6 w-6 text-primary" />,
-    title: "Instant Conversion",
-    description: "Paste any URL and get clean Markdown in milliseconds. No waiting, no queues — just instant results.",
-  },
-  {
-    icon: <Brain className="h-6 w-6 text-primary" />,
-    title: "AI-Optimized",
-    description: "Output structured specifically for ChatGPT, Claude, Gemini, DeepSeek, Cursor, and all major AI tools.",
-  },
-  {
-    icon: <FileJson className="h-6 w-6 text-primary" />,
-    title: "Multiple Formats",
-    description: "Get Markdown, Clean Markdown, AI Context, JSON, and Plain Text — all from a single URL input.",
-  },
-  {
-    icon: <Shield className="h-6 w-6 text-primary" />,
-    title: "Privacy First",
-    description: "All processing happens client-side via Jina API. No servers, no databases, no tracking. Your URLs stay private.",
-  },
-  {
-    icon: <UserPlus className="h-6 w-6 text-primary" />,
-    title: "No Sign Up",
-    description: "Start converting immediately. No accounts, no email required, no credit card — just enter a URL and go.",
-  },
-  {
-    icon: <Gauge className="h-6 w-6 text-primary" />,
-    title: "Lightning Fast",
-    description: "Optimized for speed with edge-powered content extraction. Get results faster than you can type the URL.",
-  },
-];
-
-const steps = [
-  {
-    step: "01",
-    title: "Paste URL",
-    description: "Enter any webpage URL you want to convert. Articles, docs, blogs — anything on the web.",
-    icon: <Copy className="h-5 w-5" />,
-  },
-  {
-    step: "02",
-    title: "Generate",
-    description: "Click Generate and we fetch, parse, and convert the content into multiple AI-optimized formats.",
-    icon: <Sparkles className="h-5 w-5" />,
-  },
-  {
-    step: "03",
-    title: "Copy / Download",
-    description: "Copy to clipboard or download as .md, .json, or .txt. Ready to paste into any AI tool.",
-    icon: <Download className="h-5 w-5" />,
-  },
-];
-
-const useCases = [
-  {
-    icon: <Code2 className="h-6 w-6" />,
-    title: "For Developers",
-    description: "Convert documentation, READMEs, and blog posts into structured Markdown for your knowledge base, code comments, or AI coding assistants like Cursor and Copilot.",
-  },
-  {
-    icon: <PenTool className="h-6 w-6" />,
-    title: "Content Creators",
-    description: "Extract research materials, competitor content, and reference articles into clean formats for your writing workflow and content planning.",
-  },
-  {
-    icon: <Search className="h-6 w-6" />,
-    title: "Researchers",
-    description: "Save web articles as structured data. Build personal knowledge bases, literature reviews, and research collections from any online source.",
-  },
-  {
-    icon: <Cpu className="h-6 w-6" />,
-    title: "AI Engineers",
-    description: "Generate LLM-optimized context for RAG pipelines, fine-tuning datasets, and AI agent knowledge packs. Structured, clean, ready to embed.",
-  },
-];
+import { useLanguage } from "@/components/language-provider";
 
 export default function HomePage() {
   const router = useRouter();
   const { addItem } = useHistory();
+  const { t } = useLanguage();
   const [showHistory, setShowHistory] = useState(true);
+
+  const features = [
+    {
+      icon: <Zap className="h-6 w-6 text-primary" />,
+      title: t("home.featureInstantConversion.title"),
+      description: t("home.featureInstantConversion.description"),
+    },
+    {
+      icon: <Brain className="h-6 w-6 text-primary" />,
+      title: t("home.featureAIOptimized.title"),
+      description: t("home.featureAIOptimized.description"),
+    },
+    {
+      icon: <FileJson className="h-6 w-6 text-primary" />,
+      title: t("home.featureMultipleFormats.title"),
+      description: t("home.featureMultipleFormats.description"),
+    },
+    {
+      icon: <Shield className="h-6 w-6 text-primary" />,
+      title: t("home.featurePrivacyFirst.title"),
+      description: t("home.featurePrivacyFirst.description"),
+    },
+    {
+      icon: <UserPlus className="h-6 w-6 text-primary" />,
+      title: t("home.featureNoSignUp.title"),
+      description: t("home.featureNoSignUp.description"),
+    },
+    {
+      icon: <Gauge className="h-6 w-6 text-primary" />,
+      title: t("home.featureLightningFast.title"),
+      description: t("home.featureLightningFast.description"),
+    },
+  ];
+
+  const steps = [
+    {
+      step: "01",
+      title: t("home.step1.title"),
+      description: t("home.step1.description"),
+      icon: <Copy className="h-5 w-5" />,
+    },
+    {
+      step: "02",
+      title: t("home.step2.title"),
+      description: t("home.step2.description"),
+      icon: <Sparkles className="h-5 w-5" />,
+    },
+    {
+      step: "03",
+      title: t("home.step3.title"),
+      description: t("home.step3.description"),
+      icon: <Download className="h-5 w-5" />,
+    },
+  ];
+
+  const useCases = [
+    {
+      icon: <Code2 className="h-6 w-6" />,
+      title: t("home.useCaseDevelopers.title"),
+      description: t("home.useCaseDevelopers.description"),
+    },
+    {
+      icon: <PenTool className="h-6 w-6" />,
+      title: t("home.useCaseCreators.title"),
+      description: t("home.useCaseCreators.description"),
+    },
+    {
+      icon: <Search className="h-6 w-6" />,
+      title: t("home.useCaseResearchers.title"),
+      description: t("home.useCaseResearchers.description"),
+    },
+    {
+      icon: <Cpu className="h-6 w-6" />,
+      title: t("home.useCaseEngineers.title"),
+      description: t("home.useCaseEngineers.description"),
+    },
+  ];
 
   const handleSubmit = useCallback(
     (url: string) => {
@@ -148,17 +150,15 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary mb-8"
             >
               <Sparkles className="h-3.5 w-3.5" />
-              Now with AI Context Format
+              {t("home.badge")}
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance mb-6">
-              Turn Any Webpage Into{" "}
-              <span className="gradient-text">AI-Ready Markdown</span>
+              {t("home.heroTitle")}
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              Convert websites into clean Markdown optimized for ChatGPT, Claude, Gemini,
-              DeepSeek, Cursor, Windsurf, Cline, and all AI workflows.
+              {t("home.heroDescription")}
             </p>
 
             {/* URL Input */}
@@ -179,13 +179,13 @@ export default function HomePage() {
               className="mt-6 flex items-center justify-center gap-6 text-xs text-muted-foreground"
             >
               <span className="flex items-center gap-1">
-                <Shield className="h-3 w-3" /> Privacy-first
+                <Shield className="h-3 w-3" /> {t("home.privacyFirst")}
               </span>
               <span className="flex items-center gap-1">
-                <Zap className="h-3 w-3" /> No sign-up
+                <Zap className="h-3 w-3" /> {t("home.noSignUp")}
               </span>
               <span className="flex items-center gap-1">
-                <Gauge className="h-3 w-3" /> Free forever
+                <Gauge className="h-3 w-3" /> {t("home.freeForever")}
               </span>
             </motion.div>
           </motion.div>
@@ -213,12 +213,10 @@ export default function HomePage() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-              Everything You Need to{" "}
-              <span className="gradient-text">Convert Content</span>
+              {t("home.featuresTitle")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Contextify is built from the ground up for the AI era. Every feature designed
-              to make web content instantly usable in your AI workflows.
+              {t("home.featuresSubtitle")}
             </p>
           </motion.div>
 
@@ -240,11 +238,10 @@ export default function HomePage() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-              How It{" "}
-              <span className="gradient-text">Works</span>
+              {t("home.howItWorks")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Three simple steps from webpage to AI-ready content. No complex setup, no API keys, no hassle.
+              {t("home.howItWorksSubtitle")}
             </p>
           </motion.div>
 
@@ -291,11 +288,10 @@ export default function HomePage() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-              Built for{" "}
-              <span className="gradient-text">Everyone</span>
+              {t("home.builtFor")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Whether you&apos;re coding, writing, researching, or building AI — Contextify fits your workflow.
+              {t("home.builtForSubtitle")}
             </p>
           </motion.div>
 
@@ -341,10 +337,10 @@ export default function HomePage() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-              Ready to <span className="gradient-text">Convert</span>?
+              {t("home.ctaTitle")}
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-              Start converting webpages into AI-ready Markdown instantly. Free, no sign-up, no limits.
+              {t("home.ctaSubtitle")}
             </p>
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -356,7 +352,7 @@ export default function HomePage() {
                 className="btn-primary !px-8 !py-3.5 !text-base !rounded-xl inline-flex items-center gap-2"
               >
                 <Sparkles className="h-5 w-5" />
-                Start Converting Now
+                {t("home.ctaButton")}
                 <ChevronRight className="h-5 w-5" />
               </a>
             </motion.div>

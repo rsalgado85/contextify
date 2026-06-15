@@ -1,20 +1,15 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X, Sparkles } from "lucide-react";
+import { Moon, Sun, Menu, X, Sparkles, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-
-const navLinks = [
-  { href: "/#features", label: "Features" },
-  { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#use-cases", label: "Use Cases" },
-  { href: "/convert", label: "Try Now" },
-];
+import { useLanguage } from "@/components/language-provider";
 
 export function Header() {
   const { resolvedTheme, setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -25,6 +20,17 @@ export function Header() {
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "es" : "en");
+  };
+
+  const navLinks = [
+    { href: "/#features", label: t("header.features") },
+    { href: "/#how-it-works", label: t("header.howItWorks") },
+    { href: "/#use-cases", label: t("header.useCases") },
+    { href: "/convert", label: t("header.tryNow") },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
@@ -54,10 +60,23 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
+          {/* Language Switcher */}
+          <button
+            onClick={toggleLanguage}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border hover:bg-accent/10 transition-colors"
+            aria-label={`Switch language to ${language === "en" ? "Español" : "English"}`}
+            title={language === "en" ? "Cambiar a Español" : "Switch to English"}
+          >
+            <Globe className="h-4 w-4" />
+            <span className="ml-1 text-xs font-medium uppercase hidden sm:inline">
+              {language}
+            </span>
+          </button>
+
           <button
             onClick={toggleTheme}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-border hover:bg-accent/10 transition-colors"
-            aria-label="Toggle theme"
+            aria-label={t("header.toggleTheme")}
           >
             {mounted && resolvedTheme === "dark" ? (
               <Sun className="h-4 w-4" />
@@ -70,7 +89,7 @@ export function Header() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-border md:hidden hover:bg-accent/10 transition-colors"
-            aria-label="Toggle menu"
+            aria-label={t("header.toggleMenu")}
           >
             {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>

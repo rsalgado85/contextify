@@ -4,6 +4,7 @@ import { useFavorites } from "@/store/useFavorites";
 import { Star, Trash2, ExternalLink, Bookmark } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/components/language-provider";
 
 interface FavoritesPanelProps {
   onSelect: (url: string) => void;
@@ -12,6 +13,7 @@ interface FavoritesPanelProps {
 
 export function FavoritesPanel({ onSelect, className }: FavoritesPanelProps) {
   const { items, removeFavorite } = useFavorites();
+  const { t } = useLanguage();
 
   if (items.length === 0) return null;
 
@@ -19,7 +21,7 @@ export function FavoritesPanel({ onSelect, className }: FavoritesPanelProps) {
     <div className={cn("glass-card p-4", className)}>
       <div className="flex items-center gap-2 mb-3">
         <Bookmark className="h-4 w-4 text-muted-foreground" />
-        <h3 className="text-sm font-semibold">Favorites</h3>
+        <h3 className="text-sm font-semibold">{t("favorites.favorites")}</h3>
         <span className="text-xs text-muted-foreground">({items.length})</span>
       </div>
       <div className="space-y-1 max-h-48 overflow-y-auto">

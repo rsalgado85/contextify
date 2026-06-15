@@ -2,6 +2,7 @@
 
 import { cn, formatNumber, countWords, estimateTokens, estimateReadingTime } from "@/lib/utils";
 import { FileText, Hash, Brain, Clock } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 interface TokenCounterProps {
   text: string;
@@ -9,16 +10,17 @@ interface TokenCounterProps {
 }
 
 export function TokenCounter({ text, className }: TokenCounterProps) {
+  const { t } = useLanguage();
   const chars = text.length;
   const words = countWords(text);
   const tokens = estimateTokens(text);
   const readingTime = estimateReadingTime(text);
 
   const stats = [
-    { icon: FileText, label: "Characters", value: formatNumber(chars) },
-    { icon: Hash, label: "Words", value: formatNumber(words) },
-    { icon: Brain, label: "Est. Tokens", value: formatNumber(tokens) },
-    { icon: Clock, label: "Reading Time", value: readingTime },
+    { icon: FileText, label: t("tokenCounter.characters"), value: formatNumber(chars) },
+    { icon: Hash, label: t("tokenCounter.words"), value: formatNumber(words) },
+    { icon: Brain, label: t("tokenCounter.estTokens"), value: formatNumber(tokens) },
+    { icon: Clock, label: t("tokenCounter.readingTime"), value: readingTime },
   ];
 
   return (

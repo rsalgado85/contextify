@@ -4,6 +4,7 @@ import { Download } from "lucide-react";
 import { downloadFile } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useLanguage } from "@/components/language-provider";
 
 interface DownloadButtonProps {
   content: string;
@@ -16,16 +17,19 @@ interface DownloadButtonProps {
 export function DownloadButton({
   content,
   filename,
-  label = "Download",
+  label,
   mimeType = "text/plain",
   className,
 }: DownloadButtonProps) {
+  const { t } = useLanguage();
+  const displayLabel = label ?? t("downloadButton.download");
+
   const handleDownload = () => {
     try {
       downloadFile(content, filename, mimeType);
       toast.success(`Downloaded ${filename}`);
     } catch {
-      toast.error("Failed to download");
+      toast.error(t("downloadButton.failedToDownload"));
     }
   };
 
@@ -39,7 +43,7 @@ export function DownloadButton({
       )}
     >
       <Download className="h-3.5 w-3.5" />
-      {label}
+      {displayLabel}
     </button>
   );
 }

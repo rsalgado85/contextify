@@ -5,6 +5,7 @@ import { useState } from "react";
 import { copyToClipboard } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useLanguage } from "@/components/language-provider";
 
 interface CopyButtonProps {
   text: string;
@@ -12,17 +13,20 @@ interface CopyButtonProps {
   className?: string;
 }
 
-export function CopyButton({ text, label = "Copy", className }: CopyButtonProps) {
+export function CopyButton({ text, label, className }: CopyButtonProps) {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
+
+  const displayLabel = label ?? t("copyButton.copy");
 
   const handleCopy = async () => {
     const success = await copyToClipboard(text);
     if (success) {
       setCopied(true);
-      toast.success("Copied to clipboard!");
+      toast.success(t("copyButton.copiedToClipboard"));
       setTimeout(() => setCopied(false), 2000);
     } else {
-      toast.error("Failed to copy");
+      toast.error(t("copyButton.failedToCopy"));
     }
   };
 
@@ -41,7 +45,7 @@ export function CopyButton({ text, label = "Copy", className }: CopyButtonProps)
       ) : (
         <Copy className="h-3.5 w-3.5" />
       )}
-      {copied ? "Copied!" : label}
+      {copied ? t("copyButton.copied") : displayLabel}
     </button>
   );
 }

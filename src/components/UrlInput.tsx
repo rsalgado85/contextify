@@ -4,8 +4,10 @@ import { useState } from "react";
 import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Link as LinkIcon, Loader2 } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
-const urlSchema = z.string().url("Please enter a valid URL").startsWith("https://", "URL must start with https://");
+const createUrlSchema = (invalidMsg: string, httpsMsg: string) =>
+  z.string().url(invalidMsg).startsWith("https://", httpsMsg);
 
 interface UrlInputProps {
   onSubmit: (url: string) => void;
@@ -18,10 +20,13 @@ export function UrlInput({
   onSubmit,
   isLoading = false,
   className,
-  placeholder = "https://example.com",
+  placeholder,
 }: UrlInputProps) {
+  const { t } = useLanguage();
   const [url, setUrl] = useState("");
   const [error, setError] = useState<string | null>(null);
+
+  const defaultPlaceholder = placeholder ?? t("urlInput.placeholder");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,6 +40,7 @@ export function UrlInput({
       finalUrl = `https://${finalUrl}`;
     }
 
+    const urlSchema = createUrlSchema(t("urlInput.invalidUrl"), t("urlInput.urlMustStartWith"));
     const result = urlSchema.safeParse(finalUrl);
     if (!result.success) {
       setError(result.error.issues[0].message);
@@ -56,10 +62,10 @@ export function UrlInput({
               setUrl(e.target.value);
               if (error) setError(null);
             }}
-            placeholder={placeholder}
+            placeholder={defaultPlaceholder}
             className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none py-2"
             disabled={isLoading}
-            aria-label="Enter URL to convert"
+            aria-label={t("urlInput.ariaLabel")}
           />
         </div>
         <button
@@ -70,11 +76,11 @@ export function UrlInput({
           {isLoading ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              Converting...
+              {t("urlInput.converting")}
             </>
           ) : (
             <>
-              Generate
+              {t("urlInput.generate")}
               <ArrowRight className="h-4 w-4" />
             </>
           )}

@@ -206,3 +206,7 @@ MIT © [Contextify](https://contextify.vercel.app)
 <p align="center">
   Built with ❤️ using Next.js · Vercel · Jina AI
 </p>
+
+## Live URL
+
+**[https://contextify-ai.vercel.app](https://contextify-ai.vercel.app)**

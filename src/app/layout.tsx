@@ -106,7 +106,10 @@ export const metadata: Metadata = {
     canonical: "https://contextify.vercel.app",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
     shortcut: "/favicon.ico",
     apple: "/apple-icon.png",
   },

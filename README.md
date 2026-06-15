@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://contextify.vercel.app"><strong>contextify.vercel.app</strong></a>
+  <a href="https://contextify-ai.vercel.app"><strong>contextify-ai.vercel.app</strong></a>
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@ Contextify converts any public webpage into clean, structured Markdown — optim
 ### Why Contextify?
 
 - **AI-First**: Output formats tailored for ChatGPT, Claude, Gemini, DeepSeek, Cursor, Windsurf, and Cline.
-- **Privacy-First**: No servers. No databases. No authentication. Content fetched directly from your browser.
+- **Privacy-First**: No databases. No authentication. Content is processed server-side via a lightweight proxy with zero storage.
 - **Production Quality**: Built with the same patterns used by Linear, Vercel, Stripe, and Notion.
 - **Free Forever**: Deploy on Vercel Free tier and never pay a cent.
 
@@ -49,6 +49,10 @@ Contextify converts any public webpage into clean, structured Markdown — optim
 - **Copy to Clipboard** — One-click copy for any format
 - **Download** — Download as `.md`, `.txt`, or `.json`
 
+### 🌐 Internationalization
+- **English & Spanish** — Full i18n support with EN/ES language toggle
+- **Auto-detection** — Detects browser language on first visit
+
 ### 💾 Local-First
 - **URL History** — Last 10 URLs saved locally (LocalStorage)
 - **Favorites** — Bookmark pages for quick access
@@ -60,17 +64,19 @@ Contextify converts any public webpage into clean, structured Markdown — optim
 
 | Category | Technology |
 |----------|-----------|
-| **Framework** | [Next.js 15](https://nextjs.org/) (App Router) |
+| **Framework** | [Next.js 16](https://nextjs.org/) (App Router) |
 | **Runtime** | [React 19](https://react.dev/) |
 | **Language** | [TypeScript](https://www.typescriptlang.org/) (strict) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) |
-| **UI Components** | [shadcn/ui](https://ui.shadcn.com/) |
+| **UI Components** | [shadcn/ui](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/) + [Base UI](https://base-ui.com/) |
 | **Icons** | [Lucide React](https://lucide.dev/) |
-| **Animation** | [Framer Motion](https://www.framer.com/motion/) |
+| **Animation** | [Framer Motion](https://www.framer.com/motion/) + [tw-animate-css](https://github.com/jamiebuilds/tailwindcss-animate) |
 | **State** | [Zustand](https://zustand.docs.pmnd.rs/) |
 | **Forms** | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) |
-| **Markdown** | [react-markdown](https://remarkjs.github.io/react-markdown/) + [remark-gfm](https://github.com/remarkjs/remark-gfm) |
+| **Markdown** | [react-markdown](https://remarkjs.github.io/react-markdown/) + [remark-gfm](https://github.com/remarkjs/remark-gfm) + [rehype-highlight](https://github.com/rehypejs/rehype-highlight) + [rehype-raw](https://github.com/rehypejs/rehype-raw) + [rehype-sanitize](https://github.com/rehypejs/rehype-sanitize) |
+| **Theming** | [next-themes](https://github.com/pacocoursey/next-themes) |
 | **Notifications** | [Sonner](https://sonner.emilkowal.ski/) |
+| **Internationalization** | Custom i18n provider (EN/ES) |
 | **Analytics** | [Vercel Analytics](https://vercel.com/analytics) + [Speed Insights](https://vercel.com/speed-insights) |
 | **Content Extraction** | [Jina AI Reader](https://jina.ai/reader/) |
 | **Deployment** | [Vercel](https://vercel.com/) |
@@ -81,7 +87,7 @@ Contextify converts any public webpage into clean, structured Markdown — optim
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) 18+ 
+- [Node.js](https://nodejs.org/) 18+
 - [npm](https://www.npmjs.com/) 9+
 
 ### Installation
@@ -114,37 +120,46 @@ npm start
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── layout.tsx          # Root layout with SEO metadata
-│   ├── page.tsx            # Landing page (Hero + Features + CTA)
-│   ├── convert/page.tsx    # Main conversion tool
+│   ├── layout.tsx          # Root layout with SEO metadata, fonts, providers
+│   ├── page.tsx            # Landing page (Hero + Features + How It Works + Use Cases + CTA)
+│   ├── convert/
+│   │   ├── page.tsx        # Convert page (wrapper with Suspense)
+│   │   └── ConvertPageClient.tsx  # Main conversion tool client component
+│   ├── api/convert/
+│   │   └── route.ts        # POST endpoint proxying Jina AI Reader
 │   ├── robots.ts           # robots.txt generation
 │   └── sitemap.ts          # sitemap.xml generation
 ├── components/
-│   ├── Header.tsx          # Navigation + Theme Toggle
-│   ├── Footer.tsx          # Footer with links
+│   ├── Header.tsx          # Navigation + Language Switcher + Theme Toggle
+│   ├── Footer.tsx          # Footer with product and connect links
 │   ├── UrlInput.tsx        # URL input with validation
 │   ├── ResultTabs.tsx      # Tab navigation for output formats
-│   ├── MarkdownViewer.tsx  # Rendered markdown display
-│   ├── CopyButton.tsx      # Copy-to-clipboard button
+│   ├── MarkdownViewer.tsx  # Rendered markdown display (react-markdown)
+│   ├── CopyButton.tsx      # Copy-to-clipboard with fallback
 │   ├── DownloadButton.tsx  # File download button
-│   ├── TokenCounter.tsx    # Token/word/character stats
+│   ├── TokenCounter.tsx    # Characters / words / tokens / reading time stats
+│   ├── FeatureCard.tsx     # Animated feature card for landing page
 │   ├── HistoryPanel.tsx    # Recent URL history
 │   ├── FavoritesPanel.tsx  # Bookmarked pages
 │   ├── LoadingState.tsx    # Loading skeleton
-│   ├── ErrorState.tsx      # Error display
-│   └── ui/                 # shadcn/ui primitives
+│   ├── ErrorState.tsx      # Error display with retry
+│   ├── language-provider.tsx  # i18n context provider (EN/ES)
+│   ├── layout/
+│   │   └── theme-provider.tsx  # Dark/light theme provider
+│   └── ui/                 # shadcn/ui primitives (button, card, tabs, dialog, etc.)
 ├── hooks/
-│   └── useTheme.tsx        # Dark/light theme provider
+│   └── useTheme.tsx        # Theme provider wrapping next-themes
 ├── services/
-│   ├── jina.ts             # Jina AI content extraction
-│   └── markdown.ts         # Markdown processing/cleaning
+│   ├── jina.ts             # Jina AI content extraction + parsing
+│   └── markdown.ts         # Markdown cleaning, format converters (JSON, AI Context, Plain Text)
 ├── store/
 │   ├── useHistory.ts       # Zustand store for URL history
 │   └── useFavorites.ts     # Zustand store for favorites
 ├── lib/
-│   └── utils.ts            # cn(), token estimation, clipboard, etc.
+│   ├── utils.ts            # cn(), clipboard, download, token estimation, formatting
+│   └── translations.ts     # i18n translation keys (EN + ES)
 └── types/
-    └── index.ts            # TypeScript type definitions
+    └── index.ts            # TypeScript type definitions (PageData, AppState, etc.)
 ```
 
 ---
@@ -199,14 +214,10 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
-MIT © [Contextify](https://contextify.vercel.app)
+MIT © [Contextify](https://contextify-ai.vercel.app)
 
 ---
 
 <p align="center">
   Built with ❤️ using Next.js · Vercel · Jina AI
 </p>
-
-## Live URL
-
-**[https://contextify-ai.vercel.app](https://contextify-ai.vercel.app)**

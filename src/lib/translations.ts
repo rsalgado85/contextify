@@ -124,6 +124,53 @@ export interface Translations {
 
   // Generic errors
   "errors.unexpectedError": string;
+
+  // About page
+  "about.heroTitle": string;
+  "about.heroName": string;
+  "about.heroRole": string;
+  "about.heroBio": string;
+  "about.heroBio2": string;
+  "about.heroCTALinkedIn": string;
+  "about.heroCTAGitHub": string;
+
+  "about.statsTitle": string;
+  "about.statsSideProjects": string;
+  "about.statsSideProjectsValue": string;
+  "about.statsGithubStars": string;
+  "about.statsGithubStarsValue": string;
+  "about.statsUsers": string;
+  "about.statsUsersValue": string;
+
+  "about.techStackTitle": string;
+  "about.techStackSubtitle": string;
+
+  "about.achievementsTitle": string;
+  "about.achievementsSubtitle": string;
+  "about.achievement1.title": string;
+  "about.achievement1.description": string;
+  "about.achievement2.title": string;
+  "about.achievement2.description": string;
+  "about.achievement3.title": string;
+  "about.achievement3.description": string;
+
+  "about.timelineTitle": string;
+  "about.timelineSubtitle": string;
+  "about.timeline1.date": string;
+  "about.timeline1.title": string;
+  "about.timeline1.description": string;
+  "about.timeline2.date": string;
+  "about.timeline2.title": string;
+  "about.timeline2.description": string;
+  "about.timeline3.date": string;
+  "about.timeline3.title": string;
+  "about.timeline3.description": string;
+  "about.timeline4.date": string;
+  "about.timeline4.title": string;
+  "about.timeline4.description": string;
+
+  "about.footerQuote": string;
+  "about.footerQuoteAuthor": string;
 }
 
 const en: Translations = {
@@ -257,6 +304,66 @@ const en: Translations = {
   "favorites.favorites": "Favorites",
 
   "errors.unexpectedError": "An unexpected error occurred",
+
+  // About page
+  "about.heroTitle": "About Contextify",
+  "about.heroName": "Robinson Salgado",
+  "about.heroRole": "Full-Stack Developer & Creator",
+  "about.heroBio":
+    "Contextify was born from a simple idea: every developer and AI engineer wastes too much time cleaning up scraped web content. I built Contextify to make web-to-Markdown conversion effortless, AI-optimized, and privacy-first — no accounts, no tracking, just results.",
+  "about.heroBio2":
+    "As a full-stack developer passionate about developer tools and AI workflows, I created Contextify to bridge the gap between the open web and the AI ecosystem — so you can focus on building, not cleaning data.",
+  "about.heroCTALinkedIn": "Connect on LinkedIn",
+  "about.heroCTAGitHub": "View on GitHub",
+
+  "about.statsTitle": "Project Stats",
+  "about.statsSideProjects": "Side Projects",
+  "about.statsSideProjectsValue": "3+",
+  "about.statsGithubStars": "GitHub Stars",
+  "about.statsGithubStarsValue": "100+",
+  "about.statsUsers": "Happy Users",
+  "about.statsUsersValue": "500+",
+
+  "about.techStackTitle": "Built With Modern Tech",
+  "about.techStackSubtitle":
+    "Contextify leverages a carefully chosen stack of modern tools and frameworks to deliver speed, type-safety, and a polished developer experience.",
+
+  "about.achievementsTitle": "Key Achievements",
+  "about.achievementsSubtitle":
+    "Milestones that shaped Contextify into the tool it is today.",
+  "about.achievement1.title": "Contextify Launch",
+  "about.achievement1.description":
+    "Successfully launched Contextify as a free, privacy-first web-to-Markdown converter with AI Context format support, serving hundreds of users within the first weeks.",
+  "about.achievement2.title": "AI Context Generator",
+  "about.achievement2.description":
+    "Built an innovative AI Context format that structures scraped web content specifically for LLMs like ChatGPT, Claude, and Gemini — complete with source metadata, token estimates, and clean hierarchies.",
+  "about.achievement3.title": "Jina API Integration",
+  "about.achievement3.description":
+    "Integrated Jina AI's powerful content extraction API for reliable, high-quality Markdown conversion with support for JavaScript-heavy sites, auth-walled content, and multi-format output.",
+
+  "about.timelineTitle": "Development Timeline",
+  "about.timelineSubtitle":
+    "From concept to production — the key milestones in Contextify's development.",
+  "about.timeline1.date": "Jan 2025",
+  "about.timeline1.title": "Idea & Research",
+  "about.timeline1.description":
+    "Identified the need for a privacy-first, no-signup web-to-Markdown tool optimized for AI workflows. Researched content extraction APIs and defined the core feature set.",
+  "about.timeline2.date": "Mar 2025",
+  "about.timeline2.title": "MVP Development",
+  "about.timeline2.description":
+    "Built the first working prototype with Next.js, integrated the Jina API, and implemented Markdown + AI Context format conversion. Validated with early testers.",
+  "about.timeline3.date": "May 2025",
+  "about.timeline3.title": "Public Launch",
+  "about.timeline3.description":
+    "Launched Contextify publicly with full Spanish/English i18n, Framer Motion animations, Zustand state management, and a polished glass-morphism UI built with TailwindCSS and shadcn/ui.",
+  "about.timeline4.date": "Jun 2026",
+  "about.timeline4.title": "V2 Release",
+  "about.timeline4.description":
+    "Shipped Contextify v2 with Clean Markdown output, Plain Text extraction, favorites/history panels, theme support, and the brand-new About page.",
+
+  "about.footerQuote":
+    "\"The best tools are the ones that disappear — they just work, so you can focus on what matters.\"",
+  "about.footerQuoteAuthor": "— Robinson Salgado, Creator of Contextify",
 };
 
 const es: Translations = {
@@ -390,6 +497,66 @@ const es: Translations = {
   "favorites.favorites": "Favoritos",
 
   "errors.unexpectedError": "Ocurrió un error inesperado",
+
+  // About page
+  "about.heroTitle": "Sobre Contextify",
+  "about.heroName": "Robinson Salgado",
+  "about.heroRole": "Desarrollador Full-Stack & Creador",
+  "about.heroBio":
+    "Contextify nació de una idea simple: cada desarrollador e ingeniero de IA pierde demasiado tiempo limpiando contenido web extraído. Construí Contextify para que la conversión de web a Markdown sea sencilla, optimizada para IA y con privacidad primero — sin cuentas, sin rastreo, solo resultados.",
+  "about.heroBio2":
+    "Como desarrollador full-stack apasionado por las herramientas para desarrolladores y los flujos de trabajo con IA, creé Contextify para cerrar la brecha entre la web abierta y el ecosistema de IA — para que puedas enfocarte en construir, no en limpiar datos.",
+  "about.heroCTALinkedIn": "Conectar en LinkedIn",
+  "about.heroCTAGitHub": "Ver en GitHub",
+
+  "about.statsTitle": "Estadísticas del Proyecto",
+  "about.statsSideProjects": "Proyectos Secundarios",
+  "about.statsSideProjectsValue": "3+",
+  "about.statsGithubStars": "Estrellas en GitHub",
+  "about.statsGithubStarsValue": "100+",
+  "about.statsUsers": "Usuarios Felices",
+  "about.statsUsersValue": "500+",
+
+  "about.techStackTitle": "Construido con Tecnología Moderna",
+  "about.techStackSubtitle":
+    "Contextify aprovecha un stack cuidadosamente seleccionado de herramientas y frameworks modernos para ofrecer velocidad, seguridad de tipos y una experiencia de desarrollo pulida.",
+
+  "about.achievementsTitle": "Logros Clave",
+  "about.achievementsSubtitle":
+    "Hitos que transformaron Contextify en la herramienta que es hoy.",
+  "about.achievement1.title": "Lanzamiento de Contextify",
+  "about.achievement1.description":
+    "Lanzamos Contextify exitosamente como un conversor gratuito de web a Markdown con privacidad primero y soporte para formato AI Context, sirviendo a cientos de usuarios en las primeras semanas.",
+  "about.achievement2.title": "Generador de Contexto IA",
+  "about.achievement2.description":
+    "Construimos un formato innovador de AI Context que estructura el contenido web extraído específicamente para LLMs como ChatGPT, Claude y Gemini — con metadatos de fuente, estimaciones de tokens y jerarquías limpias.",
+  "about.achievement3.title": "Integración con API de Jina",
+  "about.achievement3.description":
+    "Integramos la potente API de extracción de contenido de Jina AI para una conversión a Markdown confiable y de alta calidad, con soporte para sitios con mucho JavaScript, contenido protegido y salida en múltiples formatos.",
+
+  "about.timelineTitle": "Línea de Tiempo de Desarrollo",
+  "about.timelineSubtitle":
+    "Del concepto a producción — los hitos clave en el desarrollo de Contextify.",
+  "about.timeline1.date": "Ene 2025",
+  "about.timeline1.title": "Idea e Investigación",
+  "about.timeline1.description":
+    "Identificamos la necesidad de una herramienta de conversión web a Markdown con privacidad primero y sin registro, optimizada para flujos de IA. Investigamos APIs de extracción de contenido y definimos las funcionalidades principales.",
+  "about.timeline2.date": "Mar 2025",
+  "about.timeline2.title": "Desarrollo del MVP",
+  "about.timeline2.description":
+    "Construimos el primer prototipo funcional con Next.js, integramos la API de Jina e implementamos la conversión a Markdown y formato AI Context. Validamos con testers iniciales.",
+  "about.timeline3.date": "May 2025",
+  "about.timeline3.title": "Lanzamiento Público",
+  "about.timeline3.description":
+    "Lanzamos Contextify públicamente con i18n completa en español/inglés, animaciones Framer Motion, gestión de estado Zustand y una interfaz pulida con glass-morphism construida con TailwindCSS y shadcn/ui.",
+  "about.timeline4.date": "Jun 2026",
+  "about.timeline4.title": "Lanzamiento V2",
+  "about.timeline4.description":
+    "Publicamos Contextify v2 con salida Markdown Limpio, extracción de Texto Plano, paneles de favoritos/historial, soporte de temas y la nueva página Acerca de.",
+
+  "about.footerQuote":
+    "\"Las mejores herramientas son las que desaparecen — simplemente funcionan, para que puedas concentrarte en lo que importa.\"",
+  "about.footerQuoteAuthor": "— Robinson Salgado, Creador de Contextify",
 };
 
 export const translations: Record<Language, Translations> = { en, es };

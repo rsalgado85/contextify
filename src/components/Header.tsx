@@ -60,18 +60,31 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
-          {/* Language Switcher */}
-          <button
-            onClick={toggleLanguage}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border hover:bg-accent/10 transition-colors"
-            aria-label={`Switch language to ${language === "en" ? "Español" : "English"}`}
-            title={language === "en" ? "Cambiar a Español" : "Switch to English"}
-          >
-            <Globe className="h-4 w-4" />
-            <span className="ml-1 text-xs font-medium uppercase hidden sm:inline">
-              {language}
-            </span>
-          </button>
+          {/* Language Switcher — segmented toggle */}
+          <div className="flex items-center rounded-lg border border-border p-0.5" role="radiogroup" aria-label={t("header.toggleLanguage")}>
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-2.5 py-1 text-xs font-medium rounded-md transition-all duration-200 ${
+                language === "en"
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label="English"
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLanguage("es")}
+              className={`px-2.5 py-1 text-xs font-medium rounded-md transition-all duration-200 ${
+                language === "es"
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label="Español"
+            >
+              ES
+            </button>
+          </div>
 
           <button
             onClick={toggleTheme}

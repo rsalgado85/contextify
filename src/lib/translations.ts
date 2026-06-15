@@ -8,6 +8,7 @@ export interface Translations {
   "header.tryNow": string;
   "header.toggleTheme": string;
   "header.toggleMenu": string;
+  "header.toggleLanguage": string;
 
   // Footer
   "footer.description": string;
@@ -132,6 +133,7 @@ const en: Translations = {
   "header.tryNow": "Try Now",
   "header.toggleTheme": "Toggle theme",
   "header.toggleMenu": "Toggle menu",
+  "header.toggleLanguage": "Switch language",
 
   "footer.description":
     "Turn any webpage into AI-ready Markdown. Free, privacy-first, no sign-up required. Built for the AI era.",
@@ -264,6 +266,7 @@ const es: Translations = {
   "header.tryNow": "Probar Ahora",
   "header.toggleTheme": "Cambiar tema",
   "header.toggleMenu": "Abrir/Cerrar menú",
+  "header.toggleLanguage": "Cambiar idioma",
 
   "footer.description":
     "Convierte cualquier página web en Markdown listo para IA. Gratis, privacidad primero, sin registro. Construido para la era de la IA.",

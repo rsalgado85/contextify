@@ -31,6 +31,7 @@ export function Header() {
     { href: "/#use-cases", label: t("header.useCases") },
     { href: "/convert", label: t("header.tryNow") },
     { href: "/about", label: t("header.about") },
+    { href: "/donate", label: t("header.donate") },
   ];
 
   return (

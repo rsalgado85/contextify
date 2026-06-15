@@ -50,6 +50,11 @@ export function Footer() {
                   {t("footer.about")}
                 </Link>
               </li>
+              <li>
+                <Link href="/donate" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {t("footer.donate")}
+                </Link>
+              </li>
             </ul>
           </div>
 

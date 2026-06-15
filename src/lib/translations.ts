@@ -7,6 +7,7 @@ export interface Translations {
   "header.useCases": string;
   "header.tryNow": string;
   "header.about": string;
+  "header.donate": string;
   "header.toggleTheme": string;
   "header.toggleMenu": string;
   "header.toggleLanguage": string;
@@ -18,11 +19,24 @@ export interface Translations {
   "footer.howItWorks": string;
   "footer.tryNow": string;
   "footer.about": string;
+  "footer.donate": string;
   "footer.connect": string;
   "footer.github": string;
   "footer.twitter": string;
   "footer.copyright": string;
   "footer.madeWith": string;
+
+  // Banner
+  "banner.support": string;
+  "banner.keepFree": string;
+  "banner.donate": string;
+
+  // Donate page
+  "donate.title": string;
+  "donate.desc": string;
+  "donate.chooseAmount": string;
+  "donate.paypalButton": string;
+  "donate.redirectNote": string;
 
   // Home — hero
   "home.badge": string;
@@ -181,6 +195,7 @@ const en: Translations = {
   "header.useCases": "Use Cases",
   "header.tryNow": "Try Now",
   "header.about": "About",
+  "header.donate": "Donate",
   "header.toggleTheme": "Toggle theme",
   "header.toggleMenu": "Toggle menu",
   "header.toggleLanguage": "Switch language",
@@ -192,11 +207,24 @@ const en: Translations = {
   "footer.howItWorks": "How It Works",
   "footer.tryNow": "Try Now",
   "footer.about": "About",
+  "footer.donate": "Donate",
   "footer.connect": "Connect",
   "footer.github": "GitHub",
   "footer.twitter": "Twitter",
   "footer.copyright": "© {year} Contextify. All rights reserved.",
   "footer.madeWith": "Made with ♥ for the AI community",
+
+  "banner.support": "Support Contextify",
+  "banner.keepFree": "Help keep this tool free forever",
+  "banner.donate": "Donate",
+
+  "donate.title": "Support Contextify",
+  "donate.desc":
+    "If you find this tool useful, consider supporting its development.",
+  "donate.chooseAmount": "Choose an amount (USD)",
+  "donate.paypalButton": "Donate via PayPal",
+  "donate.redirectNote":
+    "You'll be redirected to PayPal to complete your donation.",
 
   "home.badge": "Now with AI Context Format",
   "home.heroTitle": "Turn Any Webpage Into AI-Ready Markdown",
@@ -376,6 +404,7 @@ const es: Translations = {
   "header.useCases": "Casos de Uso",
   "header.tryNow": "Probar Ahora",
   "header.about": "Acerca de",
+  "header.donate": "Donar",
   "header.toggleTheme": "Cambiar tema",
   "header.toggleMenu": "Abrir/Cerrar menú",
   "header.toggleLanguage": "Cambiar idioma",
@@ -387,11 +416,24 @@ const es: Translations = {
   "footer.howItWorks": "Cómo Funciona",
   "footer.tryNow": "Probar Ahora",
   "footer.about": "Acerca de",
+  "footer.donate": "Donar",
   "footer.connect": "Conectar",
   "footer.github": "GitHub",
   "footer.twitter": "Twitter",
   "footer.copyright": "© {year} Contextify. Todos los derechos reservados.",
   "footer.madeWith": "Hecho con ♥ para la comunidad de IA",
+
+  "banner.support": "Apoya Contextify",
+  "banner.keepFree": "Ayuda a mantener esta herramienta gratuita",
+  "banner.donate": "Donar",
+
+  "donate.title": "Apoya Contextify",
+  "donate.desc":
+    "Si encuentras útil esta herramienta, considera apoyar su desarrollo.",
+  "donate.chooseAmount": "Elige un monto (USD)",
+  "donate.paypalButton": "Donar con PayPal",
+  "donate.redirectNote":
+    "Serás redirigido a PayPal para completar tu donación.",
 
   "home.badge": "Ahora con Formato AI Context",
   "home.heroTitle": "Convierte Cualquier Web en Markdown Listo para IA",

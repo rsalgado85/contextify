@@ -6,6 +6,7 @@ export interface Translations {
   "header.howItWorks": string;
   "header.useCases": string;
   "header.tryNow": string;
+  "header.about": string;
   "header.toggleTheme": string;
   "header.toggleMenu": string;
   "header.toggleLanguage": string;
@@ -16,6 +17,7 @@ export interface Translations {
   "footer.features": string;
   "footer.howItWorks": string;
   "footer.tryNow": string;
+  "footer.about": string;
   "footer.connect": string;
   "footer.github": string;
   "footer.twitter": string;
@@ -178,6 +180,7 @@ const en: Translations = {
   "header.howItWorks": "How It Works",
   "header.useCases": "Use Cases",
   "header.tryNow": "Try Now",
+  "header.about": "About",
   "header.toggleTheme": "Toggle theme",
   "header.toggleMenu": "Toggle menu",
   "header.toggleLanguage": "Switch language",
@@ -188,6 +191,7 @@ const en: Translations = {
   "footer.features": "Features",
   "footer.howItWorks": "How It Works",
   "footer.tryNow": "Try Now",
+  "footer.about": "About",
   "footer.connect": "Connect",
   "footer.github": "GitHub",
   "footer.twitter": "Twitter",
@@ -371,6 +375,7 @@ const es: Translations = {
   "header.howItWorks": "Cómo Funciona",
   "header.useCases": "Casos de Uso",
   "header.tryNow": "Probar Ahora",
+  "header.about": "Acerca de",
   "header.toggleTheme": "Cambiar tema",
   "header.toggleMenu": "Abrir/Cerrar menú",
   "header.toggleLanguage": "Cambiar idioma",
@@ -381,6 +386,7 @@ const es: Translations = {
   "footer.features": "Características",
   "footer.howItWorks": "Cómo Funciona",
   "footer.tryNow": "Probar Ahora",
+  "footer.about": "Acerca de",
   "footer.connect": "Conectar",
   "footer.github": "GitHub",
   "footer.twitter": "Twitter",

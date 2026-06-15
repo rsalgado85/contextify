@@ -45,6 +45,11 @@ export function Footer() {
                   {t("footer.tryNow")}
                 </Link>
               </li>
+              <li>
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {t("footer.about")}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -53,12 +58,12 @@ export function Footer() {
             <h4 className="text-sm font-semibold mb-3">{t("footer.connect")}</h4>
             <ul className="space-y-2">
             <li>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5">
+              <a href="https://github.com/rsalgado85" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5">
                 <Globe className="h-3.5 w-3.5" /> {t("footer.github")}
               </a>
             </li>
             <li>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5">
+              <a href="https://x.com/rsalgado85" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5">
                 <ExternalLink className="h-3.5 w-3.5" /> {t("footer.twitter")}
               </a>
             </li>

@@ -200,7 +200,7 @@ export default function AboutPage() {
               className="flex items-center justify-center gap-3 mt-8"
             >
               <a
-                href="https://linkedin.com/in/robinsalgado"
+                href="https://linkedin.com/in/robinsonsalgado"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary inline-flex items-center gap-2 text-sm"
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 {t("about.heroCTALinkedIn")}
               </a>
               <a
-                href="https://github.com/robinsalgado"
+                href="https://github.com/rsalgado85"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center gap-2 text-sm"

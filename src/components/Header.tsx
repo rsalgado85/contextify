@@ -30,6 +30,7 @@ export function Header() {
     { href: "/#how-it-works", label: t("header.howItWorks") },
     { href: "/#use-cases", label: t("header.useCases") },
     { href: "/convert", label: t("header.tryNow") },
+    { href: "/about", label: t("header.about") },
   ];
 
   return (

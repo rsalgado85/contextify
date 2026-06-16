@@ -27,8 +27,8 @@ export default function DonatePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-full bg-[#09090B]">
-      <header className="sticky top-0 z-10 border-b border-border bg-[#09090B]/95 backdrop-blur">
+    <div className="flex flex-col min-h-full bg-background">
+      <header className="sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
@@ -47,7 +47,7 @@ export default function DonatePage() {
             <div className="inline-flex items-center justify-center size-16 rounded-2xl bg-red-500/10">
               <Heart className="size-8 text-red-500 fill-red-500" />
             </div>
-            <h1 className="text-2xl font-bold font-heading tracking-tight text-white">
+            <h1 className="text-2xl font-bold font-heading tracking-tight text-foreground">
               {t("donate.title")}
             </h1>
             <p className="text-sm text-muted-foreground max-w-xs mx-auto">

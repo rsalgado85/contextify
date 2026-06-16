@@ -89,8 +89,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen bg-background font-sans antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased`}>
         <ThemeProvider>
           <LanguageProvider>
             <div className="relative flex min-h-screen flex-col">

@@ -28,7 +28,6 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export const metadata: Metadata = {
@@ -91,6 +90,53 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://contextify-ai.vercel.app/#website",
+                  url: "https://contextify-ai.vercel.app",
+                  name: "Contextify",
+                  description:
+                    "Convert websites into clean Markdown optimized for ChatGPT, Claude, Gemini, DeepSeek, Cursor and AI workflows. Free, no sign-up, privacy-first.",
+                  inLanguage: "en-US",
+                  publisher: {
+                    "@id": "https://contextify-ai.vercel.app/#organization",
+                  },
+                },
+                {
+                  "@type": "WebApplication",
+                  "@id": "https://contextify-ai.vercel.app/#webapp",
+                  name: "Contextify",
+                  url: "https://contextify-ai.vercel.app",
+                  description:
+                    "Convert websites into clean Markdown optimized for ChatGPT, Claude, Gemini, DeepSeek, Cursor and AI workflows.",
+                  applicationCategory: "DeveloperApplication",
+                  operatingSystem: "ALL",
+                  offers: {
+                    "@type": "Offer",
+                    price: "0",
+                    priceCurrency: "USD",
+                  },
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://contextify-ai.vercel.app/#organization",
+                  name: "Contextify",
+                  url: "https://contextify-ai.vercel.app",
+                  logo: "https://contextify-ai.vercel.app/apple-icon.png",
+                  sameAs: [
+                    "https://twitter.com/contextify",
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
         <ThemeProvider>
           <LanguageProvider>
             <div className="relative flex min-h-screen flex-col">

@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/hooks/useTheme";
+import { ThemeProvider } from "@/components/layout/theme-provider";
 import { LanguageProvider } from "@/components/language-provider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Toaster } from "@/components/Toaster";
+import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -40,32 +40,17 @@ export const metadata: Metadata = {
   description:
     "Convert websites into clean Markdown optimized for ChatGPT, Claude, Gemini, DeepSeek, Cursor and AI workflows. Free, no sign-up, privacy-first.",
   keywords: [
-    "markdown converter",
-    "webpage to markdown",
-    "AI context generator",
-    "llm markdown",
-    "ChatGPT markdown",
-    "Claude markdown",
-    "web to markdown",
-    "AI context",
-    "DeepSeek markdown",
-    "Gemini context",
-    "LLM context",
-    "markdown generator",
-    "clean markdown",
-    "plain text converter",
-    "json extractor",
-    "jina ai",
-    "contextify",
+    "markdown converter", "webpage to markdown", "AI context generator",
+    "llm markdown", "ChatGPT markdown", "Claude markdown",
+    "web to markdown", "AI context", "DeepSeek markdown",
+    "Gemini context", "LLM context", "markdown generator",
+    "clean markdown", "plain text converter", "json extractor",
+    "jina ai", "contextify",
   ],
   authors: [{ name: "Contextify", url: "https://contextify-ai.vercel.app" }],
   creator: "Contextify",
   publisher: "Contextify",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     title: "Contextify — Turn Any Webpage Into AI-Ready Markdown",
     description:
@@ -74,14 +59,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://contextify-ai.vercel.app",
     siteName: "Contextify",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Contextify — Turn Any Webpage Into AI-Ready Markdown",
-      },
-    ],
+    images: [{
+      url: "/og-image.png", width: 1200, height: 630,
+      alt: "Contextify — Turn Any Webpage Into AI-Ready Markdown"
+    }],
   },
   twitter: {
     card: "summary_large_image",
@@ -92,27 +73,14 @@ export const metadata: Metadata = {
     creator: "@contextify",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: true, follow: true,
     googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      index: true, follow: true,
+      "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://contextify-ai.vercel.app",
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
-  },
+  alternates: { canonical: "https://contextify-ai.vercel.app" },
+  icons: { icon: "/favicon.ico", shortcut: "/favicon.ico", apple: "/apple-icon.png" },
 };
 
 export default function RootLayout({
@@ -122,13 +90,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("contextify-theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.classList.add(t==="dark"?"dark":"light")}catch(e){}})()`,
-          }}
-        />
-      </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider>
           <LanguageProvider>

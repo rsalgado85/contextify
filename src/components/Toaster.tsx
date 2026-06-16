@@ -1,13 +1,13 @@
 "use client";
 
 import { Toaster as SonnerToaster, type ToasterProps } from "sonner";
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "next-themes";
 
 export function Toaster(props: Omit<ToasterProps, "theme">) {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   return (
     <SonnerToaster
-      theme={theme}
+      theme={resolvedTheme as ToasterProps["theme"]}
       {...props}
     />
   );

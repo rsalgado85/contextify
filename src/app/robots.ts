@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://contextify.vercel.app/sitemap.xml",
+    sitemap: "https://contextify-ai.vercel.app/sitemap.xml",
   };
 }

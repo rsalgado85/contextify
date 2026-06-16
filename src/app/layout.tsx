@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://contextify.vercel.app"),
+  metadataBase: new URL("https://contextify-ai.vercel.app"),
   title: {
     default: "Contextify — Turn Any Webpage Into AI-Ready Markdown",
     template: "%s | Contextify",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     "jina ai",
     "contextify",
   ],
-  authors: [{ name: "Contextify", url: "https://contextify.vercel.app" }],
+  authors: [{ name: "Contextify", url: "https://contextify-ai.vercel.app" }],
   creator: "Contextify",
   publisher: "Contextify",
   formatDetection: {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
       "Convert websites into clean Markdown optimized for ChatGPT, Claude, Gemini, DeepSeek, Cursor and AI workflows. Free, no sign-up, privacy-first.",
     type: "website",
     locale: "en_US",
-    url: "https://contextify.vercel.app",
+    url: "https://contextify-ai.vercel.app",
     siteName: "Contextify",
     images: [
       {
@@ -103,7 +103,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://contextify.vercel.app",
+    canonical: "https://contextify-ai.vercel.app",
   },
   icons: {
     icon: [

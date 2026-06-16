@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "next-themes";
+import { useTheme } from "@/hooks/useTheme";
 import { Moon, Sun, Menu, X, Sparkles, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";

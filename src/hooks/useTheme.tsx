@@ -6,12 +6,14 @@ type Theme = "dark" | "light";
 
 interface ThemeContextType {
   theme: Theme;
+  resolvedTheme: Theme;
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType>({
   theme: "dark",
+  resolvedTheme: "dark",
   toggleTheme: () => {},
   setTheme: () => {},
 });
@@ -33,10 +35,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!mounted) return;
     const root = document.documentElement;
-    if (theme === "light") {
-      root.classList.add("light");
-    } else {
+    if (theme === "dark") {
+      root.classList.add("dark");
       root.classList.remove("light");
+    } else {
+      root.classList.add("light");
+      root.classList.remove("dark");
     }
     localStorage.setItem("contextify-theme", theme);
   }, [theme, mounted]);
@@ -54,7 +58,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, resolvedTheme: theme, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
